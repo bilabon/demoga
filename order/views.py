@@ -1,3 +1,17 @@
-from django.shortcuts import render
+from django.contrib.sites.shortcuts import get_current_site
+from django.contrib.sites.models import Site
+from django.views.generic import TemplateView
 
-# Create your views here.
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+    def get(self, request, *args, **kwargs):
+        current_site = get_current_site(request)
+        # token = self.validate_tid(request)
+
+        # context = self.get_context_data(token.token, **kwargs)
+        # context['tid'] = token.pk
+        context = {}
+        context['site_name'] = current_site
+        return self.render_to_response(context)

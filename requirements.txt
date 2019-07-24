@@ -1,0 +1,8 @@
+wheel
+setuptools
+tblib
+raven
+uWSGI
+
+django==1.11.22
+mysqlclient==1.4.*

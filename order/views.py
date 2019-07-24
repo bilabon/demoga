@@ -13,5 +13,6 @@ class IndexView(TemplateView):
         # context = self.get_context_data(token.token, **kwargs)
         # context['tid'] = token.pk
         context = {}
-        context['site_name'] = current_site
+        context['site_name'] = current_site.domain
+        context['site_host'] = request.get_host()
         return self.render_to_response(context)

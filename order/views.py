@@ -1,5 +1,5 @@
-from django.contrib.sites.shortcuts import get_current_site
-from django.contrib.sites.models import Site
+from sites.shortcuts import get_current_site
+from sites.models import Site
 from django.views.generic import TemplateView
 
 

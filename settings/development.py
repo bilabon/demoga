@@ -8,7 +8,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'newga',
         'USER': 'root',
-        'PASSWORD': 'gGJGsy834ghsjdXDCGsjdfgaXD',
+        'PASSWORD': os.environ["PASSWORD"],
         'HOST': 'localhost',
         'PORT': '3306',
         'TEST': {

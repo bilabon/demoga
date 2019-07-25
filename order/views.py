@@ -15,4 +15,6 @@ class IndexView(TemplateView):
         context = {}
         context['site_name'] = current_site.domain
         context['site_host'] = request.get_host()
+        # import pdb; pdb.set_trace()
+        # current_site.web_site.name
         return self.render_to_response(context)

@@ -50,8 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'core.cors.CorsMiddleware',
-    'sites.middleware.CurrentSiteMiddleware'
+    'sites.middleware.CurrentSiteMiddleware',
+    'core.middleware.cors.CorsMiddleware',
+    'core.middleware.cookie.CookieMiddleware',
 ]
 
 ROOT_URLCONF = 'settings.urls'
@@ -131,3 +132,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+
+DEFAULT_REF_ID = 2823

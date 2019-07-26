@@ -57,6 +57,7 @@ local_settings.py
 localdev.py
 *.sqlite3
 static_newga/
+static_demoga/
 
 # Flask stuff:
 instance/

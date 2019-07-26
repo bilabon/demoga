@@ -10,7 +10,7 @@ class CorsMiddleware(object):
         response = self.get_response(request)
 
         # origin = request.META.get("HTTP_ORIGIN")
-        response["Access-Control-Allow-Origin"] = request.domain
+        response["Access-Control-Allow-Origin"] = '*'
 
         # if not origin and response.site:
         #     response["Access-Control-Allow-Origin"] = "*"

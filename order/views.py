@@ -1,5 +1,5 @@
 from sites.shortcuts import get_current_site
-from sites.models import Site
+# from sites.models import Site
 from django.views.generic import TemplateView
 
 
@@ -11,6 +11,4 @@ class IndexView(TemplateView):
         context = {}
         context['site_name'] = current_site.domain
         context['site_host'] = request.get_host()
-        # import pdb; pdb.set_trace()
-        # context['cookie'] = request.COOKIE
         return self.render_to_response(context)

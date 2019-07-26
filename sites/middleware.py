@@ -13,9 +13,9 @@ class CurrentSiteMiddleware(MiddlewareMixin):
         request.site = get_current_site(request)
 
         if '127.0.0.1' in request.site.domain:
-            request.domain = '127.0.0.1'
+            request.cookie_domain = '127.0.0.1'
         else:
-            request.domain = '.' + request.site.domain
+            request.cookie_domain = '.' + request.site.domain
 
         origin = request.META.get('HTTP_ORIGIN', '')
         if origin and urlparse(origin).hostname.endswith(request.site.domain):

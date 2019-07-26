@@ -75,13 +75,16 @@ class CookieMiddleware(CookieMixin):
 
         dsc = self.fetch_dsc(request, from_cookie=False)
         if dsc:
-            response.set_cookie('dsc', dsc, max_age=self.EXPIRES_DAYS, domain=request.domain)
+            response.set_cookie('dsc', dsc, max_age=self.EXPIRES_DAYS,
+                                domain=request.cookie_domain)
 
         rid = self.fetch_ref_id(request, from_cookie=False)
         if rid:
-            response.set_cookie('rid', rid, max_age=self.EXPIRES_DAYS, domain=request.domain)
+            response.set_cookie('rid', rid, max_age=self.EXPIRES_DAYS,
+                                domain=request.cookie_domain)
 
         sid = self.fetch_sub_id(request, from_cookie=False)
         if sid:
-            response.set_cookie('sid', sid, max_age=self.EXPIRES_DAYS, domain=request.domain)
+            response.set_cookie('sid', sid, max_age=self.EXPIRES_DAYS,
+                                domain=request.cookie_domain)
         return response

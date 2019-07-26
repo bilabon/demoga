@@ -9,23 +9,9 @@ class CorsMiddleware(object):
 
         response = self.get_response(request)
 
-        # origin = urlparse(request.META.get('HTTP_ORIGIN', '')).hostname
-        # origin = request.META.get("HTTP_ORIGIN")
+        # Code to be executed for each request/response after
+        # the view is called.
+
         if request.origin:
             response["Access-Control-Allow-Origin"] = request.origin
-
-        # if not origin and response.site:
-        #     response["Access-Control-Allow-Origin"] = "*"
-        # elif origin and response.site:
-        #     response["Access-Control-Allow-Origin"] = origin
-
-        # # Code to be executed for each request/response after
-        # # the view is called.
-
-        # import pdb
-        # pdb.set_trace()
-
-        # from django.http import Http404
-        # raise Http404
-
         return response

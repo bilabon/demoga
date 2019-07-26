@@ -8,7 +8,15 @@ class CorsMiddleware(object):
         # the view (and later middleware) are called.
 
         response = self.get_response(request)
-        response["Access-Control-Allow-Origin"] = "*"
+
+        # origin = request.META.get("HTTP_ORIGIN")
+        response["Access-Control-Allow-Origin"] = request.domain
+
+        # if not origin and response.site:
+        #     response["Access-Control-Allow-Origin"] = "*"
+        # elif origin and response.site:
+        #     response["Access-Control-Allow-Origin"] = origin
+
         # # Code to be executed for each request/response after
         # # the view is called.
 

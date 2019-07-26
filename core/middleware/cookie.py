@@ -73,20 +73,15 @@ class CookieMiddleware(CookieMixin):
         # # Code to be executed for each request/response after
         # # the view is called.
 
-        if '127.0.0.1' in request.site.domain:
-            domain = '127.0.0.1'
-        else:
-            domain = '.' + request.site.domain
-
         dsc = self.fetch_dsc(request, from_cookie=False)
         if dsc:
-            response.set_cookie('dsc', dsc, max_age=self.EXPIRES_DAYS, domain=domain)
+            response.set_cookie('dsc', dsc, max_age=self.EXPIRES_DAYS, domain=request.domain)
 
         rid = self.fetch_ref_id(request, from_cookie=False)
         if rid:
-            response.set_cookie('rid', rid, max_age=self.EXPIRES_DAYS, domain=domain)
+            response.set_cookie('rid', rid, max_age=self.EXPIRES_DAYS, domain=request.domain)
 
         sid = self.fetch_sub_id(request, from_cookie=False)
         if sid:
-            response.set_cookie('sid', sid, max_age=self.EXPIRES_DAYS, domain=domain)
+            response.set_cookie('sid', sid, max_age=self.EXPIRES_DAYS, domain=request.domain)
         return response

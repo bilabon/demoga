@@ -10,3 +10,9 @@ class CurrentSiteMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         request.site = get_current_site(request)
+        if '127.0.0.1' in request.site.domain:
+            domain = '127.0.0.1'
+        else:
+            domain = '.' + request.site.domain
+
+        request.domain = domain

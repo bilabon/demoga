@@ -17,8 +17,8 @@ class CurrentSiteMiddleware(MiddlewareMixin):
         else:
             request.domain = '.' + request.site.domain
 
-        origin = urlparse(request.META.get('HTTP_ORIGIN', '')).hostname
-        if origin and origin.endswith(request.site.domain):
+        origin = request.META.get('HTTP_ORIGIN', '')
+        if origin and urlparse(origin).hostname.endswith(request.site.domain):
             request.origin = origin
         else:
-            request.origin = request.site.domain
+            request.origin = None

@@ -6,7 +6,7 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newga',
+        'NAME': 'demoga',
         'USER': 'root',
         'PASSWORD': os.environ["PASSWORD"],
         'HOST': 'localhost',
@@ -14,7 +14,7 @@ DATABASES = {
         'TEST': {
             'CHARSET': 'utf8',
             'COLLATION': 'utf8_general_ci',
-            'NAME': 'eaf_db_test',
+            'NAME': 'demoga_db_test',
         }
     },
 }

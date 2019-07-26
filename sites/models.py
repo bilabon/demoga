@@ -1,8 +1,6 @@
-from __future__ import unicode_literals
-
 import string
 
-from django.core.exceptions import ImproperlyConfigured, ValidationError
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.signals import pre_delete, pre_save
 from django.http.request import split_domain_port

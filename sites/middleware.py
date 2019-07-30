@@ -17,8 +17,11 @@ class CurrentSiteMiddleware(MiddlewareMixin):
         else:
             request.cookie_domain = '.' + request.site.domain
 
+        request.is_bot_preview = False
+        request.origin = None
         origin = request.META.get('HTTP_ORIGIN', '')
-        if origin and urlparse(origin).hostname.endswith(request.site.domain):
-            request.origin = origin
-        else:
-            request.origin = None
+        if origin:
+            if urlparse(origin).hostname.endswith(request.site.domain):
+                request.origin = origin
+            else:
+                request.is_bot_preview = True

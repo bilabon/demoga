@@ -11,4 +11,5 @@ class IndexView(TemplateView):
         context = {}
         context['site_name'] = current_site.domain
         context['site_host'] = request.get_host()
+        print('VIEW CALLED')
         return self.render_to_response(context)

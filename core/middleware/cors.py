@@ -13,9 +13,7 @@ class CorsMiddleware(object):
         if request.is_bot_preview:
             html = '<html><body>A demo preview page for FB.</body></html>'
             response = HttpResponse(html)
-            response._headers.update({
-                'access-control-allow-origin': ('Access-Control-Allow-Origin', '*')
-            })
+            response["Access-Control-Allow-Origin"] = '*'
             return response
 
         response = self.get_response(request)
